@@ -14,8 +14,6 @@ const paths = require('./paths');
 const getClientEnvironment = require('./env');
 //for px2rem
 const px2rem = require('postcss-pxtorem');
-const precss = require('precss');
-const rucksackCss = require('rucksack-css');
 const pxrem = require('./px2rem');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -194,7 +192,7 @@ module.exports = {
                         // Necessary for external CSS imports to work
                         // https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: 'postcss',
-                        plugins: () => [precss,autoprefixer,rucksackCss,px2rem(pxrem.px2remOpts)],
+                        plugins: () => [autoprefixer,px2rem(pxrem.px2remOpts)],
                       },
                     },
                   ],
@@ -221,7 +219,7 @@ module.exports = {
                 loader: require.resolve('postcss-loader'),
                 options: {
                   ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-                  plugins: () => [precss,autoprefixer,rucksackCss,px2rem(pxrem.px2remOpts)],
+                  plugins: () => [autoprefixer,px2rem(pxrem.px2remOpts)],
                 },
               },
               {

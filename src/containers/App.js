@@ -2,6 +2,7 @@ import { Button } from 'antd-mobile';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as ActionType from '../actions';
+import './demo.less';
 
 class App extends Component {
 
@@ -12,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="test"> 
         <Button type="primary">This is a button</Button>
       </div>
     );
