@@ -1,6 +1,9 @@
-import { Button } from 'antd-mobile';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SearchBar,Button } from 'antd-mobile';
+
+import CarouselView from '../components/CarouselView/CarouselView';
+
 import * as ActionType from '../actions';
 import './demo.less';
 
@@ -13,8 +16,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="test"> 
-        <Button type="primary">This is a button</Button>
+      <div> 
+        <SearchBar placeholder="搜索" maxLength={8} />
+        <CarouselView/>
       </div>
     );
   }
