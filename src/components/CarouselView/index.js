@@ -17,7 +17,6 @@ const CarouselView = () =>{
               alt="icon"
             />
           </a>
-        
       </Carousel>
     )
 };

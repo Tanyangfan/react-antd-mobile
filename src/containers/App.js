@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SearchBar,Button } from 'antd-mobile';
+import { SearchBar } from 'antd-mobile';
 
-import CarouselView from '../components/CarouselView/CarouselView';
+import CarouselView from '../components/CarouselView';
+import ProductItem from '../components/ProductItem';
+import ProductList from '../components/ProductList';
 
 import * as ActionType from '../actions';
 import './demo.less';
@@ -19,6 +21,8 @@ class App extends Component {
       <div> 
         <SearchBar placeholder="搜索" maxLength={8} />
         <CarouselView/>
+        <ProductItem/>
+        <ProductList/>
       </div>
     );
   }
