@@ -11,7 +11,7 @@ const CarouselView = () =>{
         selectedIndex={1}
         swipeSpeed={35}
       >
-          <a href="http://www.baidu.com">
+          <a href="">
             <img
               src={`https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png`}
               alt="icon"
