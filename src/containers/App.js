@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SearchBar } from 'antd-mobile';
 
+import {deepCompare} from '../tools/deepCompare';
+
 import CarouselView from '../components/CarouselView';
 import ProductItem from '../components/ProductItem';
 import ProductList from '../components/ProductList';
@@ -12,8 +14,12 @@ import './demo.less';
 class App extends Component {
 
   componentDidMount(){
-    const {dispatch } = this.props
-    dispatch(ActionType.ActionTest("a"))
+    const {dispatch } = this.props;
+    dispatch(ActionType.ActionTest("a"));
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    deepCompare(this,nextProps,nextState);
   }
 
   render() {
