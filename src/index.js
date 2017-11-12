@@ -1,7 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import AppRoute from './routes'
 import registerServiceWorker from './registerServiceWorker';
+import configureStore from './store/configureStore'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore()
+
+render(
+  <Provider store={store}>
+    <AppRoute />
+  </Provider>,
+  document.getElementById('root')
+)
+
 registerServiceWorker();
