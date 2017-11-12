@@ -36,6 +36,7 @@ class AppRoute extends Component {
                 <div>
                     <Route exact path="/" component={AsyncApp} />
                 </div>
+            
             </BrowserRouter>
         )
     }
