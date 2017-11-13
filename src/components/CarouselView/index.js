@@ -1,24 +1,31 @@
-import React from 'react';
-import { Carousel } from 'antd-mobile';
-import './CarouselView.less';
+import React, {Component} from 'react';
+import {Carousel} from 'antd-mobile';
 
-const CarouselView = () =>{
-    return (
-        <Carousel
-        className="my-carousel"
-        autoplay={false}
-        infinite
-        selectedIndex={1}
-        swipeSpeed={35}
-      >
-          <a href="">
-            <img
-              src={`https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png`}
-              alt="icon"
-            />
+import './index.less';
+
+class CarouselView extends Component {
+  render() {
+
+    var banners;
+    const data = this.props.data;
+
+    if (data) {
+      banners = this
+        .props
+        .data
+        .map((url, key) => (
+          <a href="" key={key}>
+            <img src={url} alt="icon"/>
           </a>
+        ));
+    }
+
+    return (
+      <Carousel className="my-carousel" autoplay={true} infinite swipeSpeed={50}>
+        {banners}
       </Carousel>
-    )
-};
+    );
+  }
+}
 
 export default CarouselView;

@@ -32,6 +32,19 @@ export const fetchUserReceive = res => {
     }
 }
 
+export const fetchHomeRequest = () => {
+    return {
+        type: 'FETCH_HOME_REQUEST',
+    }
+}
+
+export const fetchHomeReceive = res => {
+    return {
+        type: 'FETCH_HOME_RECEIVE',
+        res
+    }
+}
+
 export const createError = (error) => {
     return
 }

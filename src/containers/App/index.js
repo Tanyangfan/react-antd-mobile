@@ -8,24 +8,34 @@ import ProductItem from '../../components/ProductItem';
 import ProductList from '../../components/ProductList';
 
 import * as ActionType from '../../actions';
-import '../index.less';
+
+import './index.less';
+import '../global.less';
+
+import icon_record from '../../images/icon_record.png';
+import card_coupons from '../../images/card_coupons.png';
 
 class App extends Component {
 
   componentDidMount() {
     const {dispatch} = this.props;
-    dispatch(ActionType.fetchReposRequest("rx"));
+    dispatch(ActionType.fetchHomeRequest());
   }
 
   render() {
+
+    const urls = ["http://139.196.122.144:10004/uploads/adv/ed0c7356-5662-4895-bd29-f271fb8979c8.png", "http://139.196.122.144:10004/uploads/adv/3cf6fafc-453a-4392-ab0b-917f77d8538b.png"];
     return (
       <div>
         <Header title="兑换商城"/>
         <div className="search-line">
-          <SearchItem placeholder="请输入搜索内容" maxLength={8}/>
-          <img src="../../../images/icon_record.png"/>
+          <SearchItem readOnly placeholder="请输入搜索内容" maxLength={8} className="search-item"/>
+          <div className="search-line-right">
+            <img src={icon_record} alt="icon_record" className="icon-record"/>
+            <img src={card_coupons} alt="card_coupons" className="icon-card-coupons"/>
+          </div>
         </div>
-        <CarouselView/>
+        <CarouselView data={urls}/>
         <ProductItem/>
         <ProductList/>
       </div>
@@ -34,8 +44,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const {data} = state
-  return {data}
+  const {home} = state
+  console.log(home)
+  return {home}
 }
 
 export default connect(mapStateToProps)(App)
