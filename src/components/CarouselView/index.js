@@ -12,14 +12,11 @@ class CarouselView extends Component {
     const data = this.props.data;
 
     if (data.length > 0) {
-      banners = this
-        .props
-        .data
-        .map((banner, key) => (
-          <a href="" key={key}>
-            <img src={`${HOST_IMAGE_URL}${banner.image}`} alt="icon"/>
-          </a>
-        ));
+      banners = data.map((banner, key) => (
+        <a href="" key={key}>
+          <img src={`${HOST_IMAGE_URL}${banner.image}`} alt="icon"/>
+        </a>
+      ));
     } else {
       banners = <a href="">
         <img src={default_image} alt="icon"/>

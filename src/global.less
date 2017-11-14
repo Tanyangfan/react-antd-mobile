@@ -1,0 +1,29 @@
+
+// colors
+@placeholder-color: #999;
+@color-background-red: #FF441B;
+
+// font-size
+@font-size-normal: 16px;
+@font-size-big: 22px;
+
+body {
+    font-size: @font-size-normal;
+}
+
+::placeholder { /* WebKit browsers */
+    color:    @placeholder-color;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
