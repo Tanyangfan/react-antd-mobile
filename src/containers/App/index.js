@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 import SearchItem from '../../components/SearchItem';
 import Header from '../../components/Header';
 import CarouselView from '../../components/CarouselView';
-import ProductItem from '../../components/ProductItem';
-import ProductList from '../../components/ProductList';
 
 import * as ActionType from '../../actions';
 
@@ -23,8 +21,6 @@ class App extends Component {
   }
 
   render() {
-
-    const urls = ["http://139.196.122.144:10004/uploads/adv/ed0c7356-5662-4895-bd29-f271fb8979c8.png", "http://139.196.122.144:10004/uploads/adv/3cf6fafc-453a-4392-ab0b-917f77d8538b.png"];
     return (
       <div>
         <Header title="兑换商城"/>
@@ -32,12 +28,18 @@ class App extends Component {
           <SearchItem readOnly placeholder="请输入搜索内容" maxLength={8} className="search-item"/>
           <div className="search-line-right">
             <img src={icon_record} alt="icon_record" className="icon-record"/>
-            <img src={card_coupons} alt="card_coupons" className="icon-card-coupons"/>
+            <img src={card_coupons} alt="card_coupons" className="icon-card-coupons" style={{display:"none"}}/>
           </div>
         </div>
-        <CarouselView data={urls}/>
-        <ProductItem/>
-        <ProductList/>
+        <CarouselView data={this.props.home.banners} style={{height:"220px"}}/>
+        <div className="exchange-line">
+          <div className="exchange-line-left">
+            <img src={icon_record} alt="icon_record"/>
+          </div>
+          <div className="exchange-line-right">
+            <img src={icon_record} alt="icon_record"/>
+          </div>
+        </div>
       </div>
     );
   }

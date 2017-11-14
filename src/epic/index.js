@@ -6,8 +6,9 @@ import * as ActionType from '../actions';
 const REPOS_URL = "https://api.github.com/search/repositories?sort=stars&order=desc&q=";
 const USER_URL = "https://api.github.com/users/";
 
-const HOST_URL = "http://139.196.122.144:10003/pointsmall/home";
+const HOST_URL = "http://139.196.122.144:10003/";
 const HOME = HOST_URL + "pointsmall/home";
+export const HOST_IMAGE_URL = "http://139.196.122.144:10004";
 
 const fetchRepos = action$ => (
     action$.ofType('FETCH_REPOSITOYIES_REQUEST')
@@ -37,10 +38,15 @@ const fetchUser = action$ => (
 const fetchHome = action$ => (
     action$.ofType('FETCH_HOME_REQUEST')
         .switchMap(action => (
-            ajax.post(`https://bybs9.100yebao.com/General/AdInfo`)
-                .map(res => res.response)
-                .map(ActionType.fetchHomeReceive)
-                .catch(error => Observable.of(ActionType.createError(error)))
+            ajax({
+                url : HOME,
+                method :'POST',
+                crossDomain: true,
+                body:{Basic:{}}
+              })
+              .map(res => res.response)
+              .map(ActionType.fetchHomeReceive)
+              .catch(error => Observable.of(ActionType.createError(error)))
         ))
 )
 
