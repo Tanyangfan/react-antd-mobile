@@ -1,6 +1,7 @@
 const initialState = {
     banners: [],
-    categoryList: []    
+    categoryList: [],
+    exchangeInfoList: []        
 }
 
 const homeResp = (state = initialState, action) => {
@@ -8,7 +9,8 @@ const homeResp = (state = initialState, action) => {
         case "FETCH_HOME_RECEIVE":
             return {
                 banners: action.res.data.bannerList,
-                categoryList: action.res.data.categoryList
+                categoryList: action.res.data.categoryList,
+                exchangeInfoList: action.res.data.exchangeInfoList,
             };
         default:
             return state;

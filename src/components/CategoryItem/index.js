@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
+
 import {HOST_IMAGE_URL} from '../../epic';
 import './index.less';
+import ICON_MORE from '../../images/icon_more.png';
 
 class CategoryItem extends Component {
+
+    renderImage(category) {
+        if (category.id === -1) {
+            return <img src={ICON_MORE} alt="icon"/>
+        } else {
+            return <img src={`${HOST_IMAGE_URL}${category.image}`} alt="icon"/>
+        }
+    }
+
     render() {
 
         var categoryItems;
@@ -11,7 +22,7 @@ class CategoryItem extends Component {
         if (data.length > 0) {
             categoryItems = data.map((category, key) => (
                 <div key={key} className="category-item">
-                    <img src={`${HOST_IMAGE_URL}${category.image}`} alt="icon"/>
+                    {this.renderImage(category)}
                     <span>
                         {category.name}
                     </span>
@@ -21,7 +32,7 @@ class CategoryItem extends Component {
 
         return (
             <div className="category-line">
-                {categoryItems};
+                {categoryItems}
             </div>
         );
     }

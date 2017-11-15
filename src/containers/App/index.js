@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {dematerialize} from 'rxjs/operators/dematerialize';
 
 import SearchItem from '../../components/SearchItem';
 import Header from '../../components/Header';
-import CarouselView from '../../components/CarouselView';
+import BannerView from '../../components/BannerView';
 import CategoryItem from '../../components/CategoryItem';
+import ExchangeRecordItem from '../../components/ExchangeRecordItem';
 
 import * as ActionType from '../../actions';
 
@@ -45,8 +47,7 @@ class App extends Component {
           </div>
         </div>
 
-        <CarouselView
-          data={this.props.home.banners}/>
+        <BannerView data={this.props.home.banners}/>
 
         <div className="exchange-line">
           <div className="exchange-line-left">
@@ -67,6 +68,8 @@ class App extends Component {
         </div>
 
         <CategoryItem data={this.props.home.categoryList}/>
+
+        <ExchangeRecordItem data={this.props.home.exchangeInfoList}/>
 
       </div>
     );

@@ -5,7 +5,7 @@ import {HOST_IMAGE_URL} from '../../epic';
 import './index.less';
 import default_image from '../../images/default_image.png';
 
-class CarouselView extends Component {
+class BannerView extends Component {
   render() {
 
     var banners;
@@ -31,4 +31,4 @@ class CarouselView extends Component {
   }
 }
 
-export default CarouselView;
+export default BannerView;
