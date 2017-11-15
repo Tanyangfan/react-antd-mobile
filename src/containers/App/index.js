@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {dematerialize} from 'rxjs/operators/dematerialize';
 
 import SearchItem from '../../components/SearchItem';
 import Header from '../../components/Header';
