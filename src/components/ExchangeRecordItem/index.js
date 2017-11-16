@@ -11,6 +11,19 @@ import icon_exchange_record from '../../images/icon_exchange_record.png';
 class ExchangeRecordItem extends Component {
 
     renderRecords(records) {
+
+        if (records.length <=0) {
+            records = [
+                {
+                    id: "111111",
+                    timestamp: "111111",
+                    message: "加载中......",
+                }
+            ]
+        }
+
+        console.log(records);
+
         return records.map((record, key) => (
             <div key={key} className="exchange-content">
                 <div className="exchange-content-top">
