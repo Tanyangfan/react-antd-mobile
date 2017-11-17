@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import BannerView from '../../components/BannerView';
 import CategoryItem from '../../components/CategoryItem';
 import ExchangeRecordItem from '../../components/ExchangeRecordItem';
+import TipList from '../../components/TipList';
 
 import * as ActionType from '../../actions';
 
@@ -18,9 +19,21 @@ import icon_flower from '../../images/icon_flower.png';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      offset: 1
+    }
+  }
+
   componentDidMount() {
     const {dispatch} = this.props;
     dispatch(ActionType.fetchHomeRequest());
+    dispatch(ActionType.fetchTipListRequest(this.state.offset));
+  }
+
+  test(data) {
+    console.log(data);
   }
 
   render() {
@@ -70,15 +83,15 @@ class App extends Component {
 
         <ExchangeRecordItem data={this.props.home.exchangeInfoList}/>
 
+        <TipList data={this.props.tipList.data}/>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const {home} = state
-  console.log(home)
-  return {home}
+  const {home, tipList} = state
+  return {home, tipList}
 }
 
 export default connect(mapStateToProps)(App)

@@ -6,8 +6,10 @@ import * as ActionType from '../actions';
 const REPOS_URL = "https://api.github.com/search/repositories?sort=stars&order=desc&q=";
 const USER_URL = "https://api.github.com/users/";
 
-const HOST_URL = "http://139.196.122.144:10003/";
-const HOME = HOST_URL + "pointsmall/home";
+const HOST_URL = "http://139.196.122.144:10003/pointsmall/";
+const HOME = HOST_URL + "home";
+const TIP_LIST = HOST_URL + "tiplist";
+
 export const HOST_IMAGE_URL = "http://139.196.122.144:10004";
 
 const fetchRepos = action$ => (
@@ -50,4 +52,23 @@ const fetchHome = action$ => (
         ))
 )
 
-export default combineEpics(fetchRepos, fetchUser,fetchHome);
+const fetchTipList = action$ => (
+    action$.ofType('FETCH_TIP_LIST_REQUEST')
+        .switchMap(action => (
+            ajax({
+                url : TIP_LIST,
+                method :'POST',
+                crossDomain: true,
+                body:{
+                    limit: action.limit,
+                    offset: action.offset,
+                    Basic:{}
+                }
+              })
+              .map(res => res.response)
+              .map(ActionType.fetchTipListReceive)
+              .catch(error => Observable.of(ActionType.createError(error)))
+        ))
+)
+
+export default combineEpics(fetchRepos, fetchUser, fetchHome, fetchTipList);

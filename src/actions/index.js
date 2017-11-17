@@ -45,6 +45,21 @@ export const fetchHomeReceive = res => {
     }
 }
 
+export const fetchTipListRequest = offset => {
+    return {
+        type: 'FETCH_TIP_LIST_REQUEST',
+        limit: 10,
+        offset
+    }
+}
+
+export const fetchTipListReceive = res => {
+    return {
+        type: 'FETCH_TIP_LIST_RECEIVE',
+        res
+    }
+}
+
 export const createError = (error) => {
     return
 }

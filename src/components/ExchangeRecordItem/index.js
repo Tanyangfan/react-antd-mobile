@@ -12,17 +12,15 @@ class ExchangeRecordItem extends Component {
 
     renderRecords(records) {
 
-        if (records.length <=0) {
-            records = [
-                {
-                    id: "111111",
-                    timestamp: "111111",
-                    message: "加载中......",
-                }
-            ]
-        }
-
-        console.log(records);
+        // if (records.length <=0) {
+        //     records = [
+        //         {
+        //             id: "111111",
+        //             timestamp: "111111",
+        //             message: "加载中......",
+        //         }
+        //     ]
+        // }
 
         return records.map((record, key) => (
             <div key={key} className="exchange-content">
